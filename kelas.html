@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Kelas Kami - Biru Muda</title>
+    <title>Website Kelas IX-G</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,6 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Warna Background diganti ke Biru Muda Gradient */
             background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
             min-height: 100vh;
             padding: 20px;
@@ -29,7 +28,6 @@
         }
         
         header {
-            /* Header Biru Muda */
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 40px;
@@ -39,12 +37,6 @@
         header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.95;
         }
         
         nav {
@@ -93,8 +85,30 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Foto Gallery Style */
+        .photo-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 5px solid white;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.05);
+        }
         
-        /* Gaya Kartu Siswa - Biru Muda Gradient */
+        /* Kartu Siswa */
         .student-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -113,7 +127,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         
         .student-card:hover {
@@ -121,61 +134,35 @@
             box-shadow: 0 10px 25px rgba(172, 182, 229, 0.4);
         }
         
-        .student-number {
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .student-name {
-            font-weight: 600;
-            line-height: 1.3;
-        }
+        .student-number { font-size: 2em; font-weight: bold; margin-bottom: 10px; opacity: 0.9; }
+        .student-name { font-weight: 600; line-height: 1.3; }
         
-        /* Beranda & Tabel tetap sesuai permintaan sebelumnya */
         .info-card {
             background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            color: #0369a1;
+            padding: 30px; border-radius: 15px; margin-bottom: 20px; color: #0369a1;
         }
         
         .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-top: 20px;
         }
         
         .info-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #4facfe;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white; padding: 20px; border-radius: 10px;
+            border-left: 5px solid #4facfe; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         table {
-            width: 100%;
-            min-width: 800px;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 100%; min-width: 800px; border-collapse: collapse;
+            margin-top: 20px; background: white; border-radius: 10px;
+            overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         th { background: #4facfe; color: white; padding: 15px; text-align: left; }
         td { padding: 15px; border-bottom: 1px solid #f0f9ff; }
 
         footer {
-            background: #0c4a6e;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            background: #0c4a6e; color: white; text-align: center; padding: 20px;
         }
     </style>
 </head>
@@ -188,6 +175,7 @@
         
         <nav>
             <button class="nav-btn active" data-section="beranda">Beranda</button>
+            <button class="nav-btn" data-section="gallery">We Are IX-G</button>
             <button class="nav-btn" data-section="siswa">Daftar Siswa</button>
             <button class="nav-btn" data-section="jadwal">Jadwal Pelajaran</button>
         </nav>
@@ -204,6 +192,15 @@
                     <div class="info-item"><strong>Ketua Kelas</strong><p>M. Alief Abdillah</p></div>
                     <div class="info-item"><strong>Wakil Ketua</strong><p>Tsaqif Haidar Kamil</p></div>
                 </div>
+            </div>
+
+            <div id="gallery" class="section">
+                <h2 style="color: #0369a1; margin-bottom: 20px; text-align: center;">We Are IX-G ✨</h2>
+                <div class="photo-container">
+                    <h3 style="color : #0369a1; margin-bottom: 20px; text-align: center;">IG : @ninegrowtogether</h3>
+                    <img src="9G.jpg" alt="Foto Anak Anak IX-G">
+                </div>
+                <p style="text-align: center; color: #555; font-style: italic;">"9G, G nya Gacor"</p>
             </div>
             
             <div id="siswa" class="section">
@@ -256,10 +253,7 @@
         students.forEach((name, index) => {
             const card = document.createElement('div');
             card.className = 'student-card';
-            card.innerHTML = `
-                <div class="student-number">${(index + 1).toString().padStart(2, '0')}</div>
-                <div class="student-name">${name}</div>
-            `;
+            card.innerHTML = `<div class="student-number">${(index + 1).toString().padStart(2, '0')}</div><div class="student-name">${name}</div>`;
             container.appendChild(card);
         });
 
